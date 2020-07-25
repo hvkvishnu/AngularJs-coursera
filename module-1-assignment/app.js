@@ -36,7 +36,7 @@
   function checkBlankItems(items) {
     let finalItemsCount = items.length;
     for (var i = 0; i < items.length; i++) {
-      if(items[i] == ""){
+      if(items[i].trim() == ""){
         finalItemsCount--;
       }
     }
