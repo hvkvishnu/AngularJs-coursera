@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app = 'CustomFilterApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Filter</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller='CustomFilterAppController'>
+    <h1>Custom Filter</h1>
+    <div >
+        Original : {{sayMessage()}} <br>
+        Custom   : {{sayCustomMessage()}} <br>
+        Using interpolation : {{sayCustomMessage() | truth : "new" : "cool"}} <br>
+        Using more filter   : {{sayCustomMessage() | truth : "new" : "cool" | uppercase}}
+
+    </div>
+  </body>
+</html>

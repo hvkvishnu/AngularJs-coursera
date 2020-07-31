@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app = 'DigestCycle'>
+  <head>
+    <meta charset="utf-8" >
+    <title>Digest Cycle</title>
+    <script src="angular.min.js" ></script>
+    <script src="app.js" ></script>
+  </head>
+  <body ng-controller = 'DigestCycleController'>
+      <div>
+          <h1>Digest Cycle</h1>
+      </div>
+      <div >
+          <button name="button" ng-click = 'showNumberOfWatcher()'># of watchers</button>
+          <input type="text" ng-model='name'>
+      </div>
+      <div>
+          <button  name="button" ng-click = 'countOnce()'> Up once counter</button>
+          <button  name="button" ng-click = 'counterMany()'> counter</button> <br>
+          <div>{{ ::value }}</div>
+          <button ng-click="value = 3">Get Value</button>
+      </div>
+
+      <div>
+        Count Once :{{ onceCounter}}<br>
+        Counter    :{{counter}}<br>
+        name       :{{name}}
+      </div>
+
+  </body>
+</html>
