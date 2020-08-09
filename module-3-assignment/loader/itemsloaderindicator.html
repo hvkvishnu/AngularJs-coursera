@@ -1,0 +1,29 @@
+<div class="loader"></div><br><br><br>
+<div class="container">
+  <div class="error">
+    Nothing Found
+  </div>
+  <div class="row head">
+    <div class="col-sm-3">Item Name</div>
+    <div class="col-sm-3">Short Name</div>
+    <div class="col-sm-3">Description</div>
+    <div class="col-sm-3">Remove Button</div>
+  </div>
+  <br><br>
+  <div class="row" ng-repeat="item in list.itemsFound">
+    <div class="col-sm-3">
+      {{item.name}}
+    </div>
+    <div class="col-sm-3">
+      {{item.short_name}}
+    </div>
+    <div class="col-sm-3">
+      {{item.description}}
+    </div>
+    <div class="col-sm-3">
+      <button class="btn btn-warning"
+      ng-Click="list.onRemove({index:$index});">Don't want this one!</button>
+    </div>
+    <br><br>
+  </div>
+</div>

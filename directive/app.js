@@ -69,6 +69,8 @@
         quantity : itemQuantity
       };
       items.push(item);
+      console.log(typeof(items));
+      console.log(items);
     };
 
     service.removeItem = function (itemIndex) {
@@ -76,6 +78,7 @@
     }
 
     service.getItem = function () {
+
       return items;
     };
   }
