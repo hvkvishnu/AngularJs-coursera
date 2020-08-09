@@ -33,6 +33,7 @@
     });
 
     function displayNoItemWarning() {
+      console.log("inside displayNoItemWarning");
       var warningElem = elem.find("div.error");
       var headElem = elem.find("div.head");
       warningElem.slideDown(800);
@@ -51,8 +52,12 @@
 
   function FoundItemsController() {
     var list = this;
+    list.isInitial = function () {
+
+    }
+
     list.findZeroLength = function () {
-      if (list.itemsFound.length <= 0) {
+      if (list.itemsFound != undefined && list.itemsFound.length <= 0 ) {
         return true;
       }
       return false;
@@ -63,7 +68,7 @@
   function NarrowItDownController(MenuSearchService) {
     var menu = this;
     menu.searchTerm = '';
-    menu.foundItems = [];
+    //menu.foundItems = [];
 
 
     menu.getMenuItems = function () {
