@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="ShoppingListApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Custom Service</title>
+    <style media="screen">
+      .error{
+        color: red;
+        font-size: 20pt;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Custom Service</h1>
+    <div ng-controller="ShoppingListAddController as itemAdder">
+      <input type="text" ng-model="itemAdder.itemName" placeholder="Item Name">
+      <input type="text" ng-model="itemAdder.itemQuantity" placeholder="Item Quantity">
+      <button ng-click="itemAdder.addItem()">Add item</button>
+      <span> Lastly Removed Item :{{itemAdder.lastRemovedItem}}</span>
+      <shopping-list
+      items="itemAdder.items"
+      title="{{itemAdder.title}}"
+      on-remove="itemAdder.removeItem(index)"></shopping-list>
+    </div>
+
+
+  </body>
+</html>
