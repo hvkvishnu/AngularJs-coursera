@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="ShoppingListEventsApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="jquery-3.1.0.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Custom Service</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Shopping List With Events:</h1>
+    <div ng-controller="ShoppingListController as itemAdder">
+      <input type="text" ng-model="itemAdder.itemName" placeholder="Item Name">
+      <input type="text" ng-model="itemAdder.itemQuantity" placeholder="Item Quantity">
+      <button ng-click="itemAdder.addItem()">Add item</button>
+      <!-- <span> Lastly Removed Item :{{itemAdder.lastRemovedItem}}</span> -->
+      <shopping-list
+      items="itemAdder.items"
+      title="{{itemAdder.title}}"
+      on-remove="itemAdder.removeItem(index)"></shopping-list>
+    </div>
+
+    <loading-spinner></loading-spinner>
+
+  </body>
+</html>

@@ -3,8 +3,34 @@
   .controller("NarrowItDownController",NarrowItDownController)
   .service("MenuSearchService",MenuSearchService)
   .directive("foundItems",FoundItems)
+  .component("loadingSpinner",{
+    templateUrl:"spinner.html",
+    controller:SpinnerController
+  })
   .constant("ApiPath","https://davids-restaurant.herokuapp.com/menu_items.json");
 
+  SpinnerController.$inject = ["$rootScope"];
+  function SpinnerController($rootScope) {
+    var $ctrl = this;
+    $ctrl.showSpinner = false;
+    var cancelListener =$rootScope.$on('shoppinglist:processing',function (event,data) {
+      console.log("Event :",event);
+      console.log("Data :",data);
+
+      if(data.on){
+        $ctrl.showSpinner = true;
+        console.log("showSpinner true");
+      }
+      else {
+
+        $ctrl.showSpinner = false;
+      }
+    });
+
+    $ctrl.$onDestroy = function () {
+      cancelListener();
+    };
+  }
 
   function FoundItems() {
     var ddo = {
@@ -64,15 +90,16 @@
     }
   }
 
-  NarrowItDownController.$inject = ["MenuSearchService"];
-  function NarrowItDownController(MenuSearchService) {
+  NarrowItDownController.$inject = ["$rootScope","MenuSearchService"];
+  function NarrowItDownController($rootScope,MenuSearchService) {
     var menu = this;
     menu.searchTerm = '';
     //menu.foundItems = [];
-
+    console.log("$rootScope ",$rootScope);
 
     menu.getMenuItems = function () {
       var promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
+      $rootScope.$broadcast("shoppinglist:processing",{on:true});
       promise.then(function (response) {
           //console.log(response);
           menu.foundItems = response;
@@ -80,6 +107,9 @@
       .catch(function (error) {
           console.log(error);
       })
+      .finally(function () {
+        $rootScope.$broadcast("shoppinglist:processing",{on:false});
+      });
     };
 
     menu.removeItem = function (index) {

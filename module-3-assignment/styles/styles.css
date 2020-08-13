@@ -13,12 +13,12 @@ input[type="text"] {
   font-weight: bold;
 }
 .error{
-  
+
   color: red;
   font-weight: bold;
 }
 .loader {
-  display: none;
+  display: block;
   margin-left: 5px;
   font-size: 10px;
   float: left;
