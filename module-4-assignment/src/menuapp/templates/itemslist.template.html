@@ -1,0 +1,27 @@
+<!-- <ul ng-repeat="item in $ctrl.items">
+  <li>
+    Item Name: {{item.name}}
+  </li>
+  <li>
+    Item Description: {{item.description}}
+  </li>
+</ul> -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="item in $ctrl.items">
+      <td>{{item.name}}</td>
+      <td>{{item.short_name}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </tbody>
+</table>

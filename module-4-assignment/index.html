@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="Restaurant Menu App">
+  <head>
+    <meta charset="utf-8">
+    <title>Menu App</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+      .jumbotron .btn{
+        margin: 5px;
+      }
+      .row{
+        padding-left: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li ui-sref-active="active" ui-sref="home" role="presentation"><a href="#">Home</a></li>
+                <li ui-sref-active="active" ui-sref="categoriesList" role="presentation"><a href="#">Categories</a></li>
+            </ul>
+        </nav>
+        <h3>Restaurant Menu App</h3>
+    </div>
+    <ui-view></ui-view>
+    <div class="row">
+      <div>
+        <loading-spinner></loading-spinner>
+      </div>
+    </div>
+</div>
+    <!-- Libraries -->
+    <script src="lib/angular.min.js" ></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/menuapp/menuapp.module.js" ></script>
+    <script src="src/data/data.module.js" ></script>
+    <script src="src/spinner/spinner.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/menuapp/routes.js"></script>
+
+    <!-- MenuApp module artifacts -->
+    <script src="src/menuapp/categories-list.controller.js"></script>
+    <script src="src/menuapp/categories.component.js"></script>
+    <script src="src/menuapp/items-list.controller.js"></script>
+    <script src="src/menuapp/items.component.js"></script>
+
+    <!-- Data artifacts -->
+    <script src="src/data/menudata.service.js"></script>
+
+    <!-- spinner artifacts -->
+    <script src="src/spinner/loadingspinner.component.js" ></script>
+
+  </body>
+</html>

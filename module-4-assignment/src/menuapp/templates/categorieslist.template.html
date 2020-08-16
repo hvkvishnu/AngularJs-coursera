@@ -1,0 +1,11 @@
+<!-- <ul>
+  <li ng-repeat="listing in $ctrl.list" >
+    <a ui-sref="itemsList({category:listing.short_name})">{{listing.name}}</a>
+  </li>
+</ul> -->
+<div>
+  <button ng-repeat="listing in $ctrl.list" class="btn btn-success"
+   ui-sref="itemsList({categoryShortName:listing.short_name , categoryName:listing.name})">
+    {{listing.name}}
+  </button>
+</div>
