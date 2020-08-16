@@ -6,6 +6,5 @@
   function CategoriesListController(list) {
     var categorieslist = this;
     categorieslist.list = list.data;
-    console.log(categorieslist.list);
   }
 })();

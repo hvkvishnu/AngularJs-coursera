@@ -24,7 +24,6 @@
       controller:'CategoriesListController as categoriesList',
       resolve:{
         list:['MenuDataService',function (MenuDataService) {
-          console.log("inside route category");
           return MenuDataService.getAllCategories();
         }]
       }
@@ -41,7 +40,6 @@
       },
       resolve:{
         items:['$stateParams','MenuDataService',function ($stateParams,MenuDataService) {
-          console.log("category Name:",$stateParams.categoryName);
           return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
         }]
       }
