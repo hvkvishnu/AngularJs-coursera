@@ -27,7 +27,7 @@
   </div>
   <div class="form-group">
     <label for="phone">Phone number</label>
-    <input type="text" class="form-control" name="phone" placeholder="Phone number ###-###-####"
+    <input type="text" class="form-control" name="phone" required placeholder="Phone number ###-###-####"
       pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="signUpCtrl.info.phone">
       <div class="alert alert-warning" ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
               Phone must be in the format ###-###-####
